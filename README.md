@@ -70,16 +70,18 @@ The `experiments/` directory contains one subdirectory per job ID, each holding:
 ---
 
 ## 📁 Repository Structure
+```
 .
 ├── experiments/
-│   ├── backend.pkl                        # Serialized backend target
-│   ├── backend_config.json                # Backend configuration
+│   ├── backend.pkl
+│   ├── backend_config.json
 │   └── {job_id}/
-│       ├── {job_id}_result.json           # Measurement results
-│       └── {job_id}_properties.json       # Calibration properties
-├── Quantum_Volunteer's_Dilemma.ipynb      # Main analysis notebook
-├── requirements.txt                       # Python dependencies
+│       ├── {job_id}_result.json
+│       └── {job_id}_properties.json
+├── Quantum_Volunteer's_Dilemma.ipynb
+├── requirements.txt
 └── README.md
+```
 ---
 
 ## ⚙️ Requirements
