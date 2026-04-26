@@ -101,9 +101,22 @@ Each job subdirectory in `experiments/` contains:
 ├── experiments/
 │   ├── backend.pkl                  # Serialized IBM backend target
 │   ├── backend_config.json          # Backend configuration for noise model
-│   └── {job_id}/
-│       ├── {job_id}_result.json     # Hardware measurement results
-│       └── {job_id}_properties.json # Calibration data at execution time
+│   ├── run_01/                      # QPU execution run 1 (N=2–9, ibm_fez)
+│   │   ├── job_metadata.json        # Job info: ID, backend, cost, timestamps
+│   │   ├── backend_calibration.json # T1, T2, gate/readout errors at runtime
+│   │   └── measurement_results.json # SamplerV2 bitstring counts
+│   ├── run_02/                      # QPU execution run 2
+│   │   ├── job_metadata.json
+│   │   ├── backend_calibration.json
+│   │   └── measurement_results.json
+│   ├── run_03/                      # QPU execution run 3
+│   │   ├── job_metadata.json
+│   │   ├── backend_calibration.json
+│   │   └── measurement_results.json
+│   └── run_04/                      # QPU execution run 4
+│       ├── job_metadata.json
+│       ├── backend_calibration.json
+│       └── measurement_results.json
 ├── Quantum_Volunteer's_Dilemma.ipynb
 ├── requirements.txt
 ├── LICENSE
