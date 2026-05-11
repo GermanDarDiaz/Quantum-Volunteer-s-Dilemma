@@ -1,7 +1,7 @@
 # Quantum Volunteer's Dilemma
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.9%2B-blue?style=flat-square&logo=python" alt="Python">
+  <img src="https://img.shields.io/badge/IBM%20Quantum-ibm__kingston-1192E8?style=flat-square" alt="IBM Quantum">
   <img src="https://img.shields.io/badge/Qiskit-2.4.0-6929C4?style=flat-square&logo=qiskit" alt="Qiskit">
   <img src="https://img.shields.io/badge/IBM%20Quantum-ibm__fez-1192E8?style=flat-square" alt="IBM Quantum">
   <img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey?style=flat-square" alt="License">
@@ -10,7 +10,7 @@
 
 <p align="center">
   Implementation and experimental validation of the <strong>n-player Volunteer's Dilemma</strong> within the quantum game theory paradigm, using the Eisert–Wilkens–Lewenstein (EWL) protocol.<br>
-  Experiments are executed across three environments: ideal simulation, real IBM Quantum hardware (<code>ibm_fez</code>), and a calibration-based Digital Twin.
+  Experiments are executed across three environments: ideal simulation, real IBM Quantum hardware (<code>ibm_kingstone</code>), and a calibration-based Digital Twin.
 </p>
 
 ---
@@ -81,16 +81,21 @@ The **symmetric quantum Nash equilibrium** is parametrized as `(θ = 0, φ = π/
 
 ## 📊 Experiments
 
-Hardware experiments were executed on **`ibm_fez`** via IBM Quantum Runtime (SamplerV2 primitive) at transpilation optimization level 0. All player counts were submitted as a single batched job. Results are stored locally for full offline reproducibility.
+Hardware experiments were executed on **`ibm_kingston`** (Heron r2 family) via IBM Quantum
+Runtime (SamplerV2 primitive). Four independent jobs were submitted — one per transpiler
+optimization level (0–3) — each covering N = 2 to 9 players with **20 repetitions per
+circuit** and **2048 shots per repetition**. Results are stored locally for full offline
+reproducibility.
 
-Each job subdirectory in `experiments/` contains:
+Each `run_0X/` subdirectory in `experiments/` corresponds to one optimization level and contains:
 
 | File | Description |
 |---|---|
-| `{job_id}_result.json` | SamplerV2 primitive results (measurement counts per bitstring). |
-| `{job_id}_properties.json` | Backend calibration snapshot (T1, T2, gate errors, readout errors) at execution time. |
+| `measurement_results.json` | SamplerV2 primitive results (measurement counts per bitstring, all repetitions). |
+| `properties.json` | Backend calibration snapshot (T1, T2, gate errors, readout errors) at execution time. |
 | `backend.pkl` | Serialized backend target object for offline transpilation. |
-| `backend_config.json` | Backend configuration for noise model reconstruction. |
+| `backend_configuration.json` | Backend configuration for noise model reconstruction. |
+| `job_metadata.json` | Job identifiers, backend name, timestamps, and execution parameters. |
 
 ---
 
@@ -99,24 +104,18 @@ Each job subdirectory in `experiments/` contains:
 ```
 .
 ├── experiments/
-│   ├── backend.pkl                  # Serialized IBM backend target
-│   ├── backend_config.json          # Backend configuration for noise model
-│   ├── run_01/                      # QPU execution run 1 (N=2–9, ibm_fez)
-│   │   ├── job_metadata.json        # Job info: ID, backend, cost, timestamps
-│   │   ├── backend_calibration.json # T1, T2, gate/readout errors at runtime
-│   │   └── measurement_results.json # SamplerV2 bitstring counts
-│   ├── run_02/                      # QPU execution run 2
-│   │   ├── job_metadata.json
-│   │   ├── backend_calibration.json
-│   │   └── measurement_results.json
-│   ├── run_03/                      # QPU execution run 3
-│   │   ├── job_metadata.json
-│   │   ├── backend_calibration.json
-│   │   └── measurement_results.json
-│   └── run_04/                      # QPU execution run 4
-│       ├── job_metadata.json
-│       ├── backend_calibration.json
-│       └── measurement_results.json
+│   ├── run_01/                        # Optimization level 0
+│   │   ├── backend.pkl                # Serialized IBM backend target
+│   │   ├── backend_configuration.json # Backend configuration for noise model
+│   │   ├── job_metadata.json          # Job ID, backend, timestamps, parameters
+│   │   ├── measurement_results.json   # SamplerV2 bitstring counts (20 reps × N)
+│   │   └── properties.json            # T1, T2, gate/readout errors at runtime
+│   ├── run_02/                        # Optimization level 1
+│   │   └── ...
+│   ├── run_03/                        # Optimization level 2
+│   │   └── ...
+│   └── run_04/                        # Optimization level 3
+│       └── ...
 ├── Quantum_Volunteer's_Dilemma.ipynb
 ├── requirements.txt
 ├── LICENSE
@@ -140,6 +139,7 @@ pip install -r requirements.txt
 | `qiskit` | 2.4.0 |
 | `qiskit-ibm-runtime` | 0.46.1 |
 | `qiskit-aer` | latest |
+| `mthree` | latest |
 | `pylatexenc` | latest |
 | `scikit-learn` | latest |
 | `scipy` | latest |
@@ -180,27 +180,31 @@ If no IBM Quantum connection is available, the notebook automatically clones thi
 
 ---
 
-## 📈 Output
-
-Running the notebook end-to-end produces the following analyses and visualizations:
-
-| Output | Description |
+## 📈 | Output | Description |
 |---|---|
 | **Interactive Payoff Explorer** | Full (N, θ, φ) strategy landscape via sliders (ideal simulation). |
-| **Fidelity Decay Plots** | Target-state success probability P(\|1⟩^⊗N) vs. N, with linear regression for QPU and Digital Twin. |
-| **Payoff Comparison** | Experimental QPU results vs. theoretical quantum benchmark and classical Nash equilibrium, with 95% confidence intervals. |
-| **Noise Characterization** | Average undesired-state probability as a function of N. |
-| **Digital Twin Validation** | QPU vs. simulation agreement on success probability and payoff profiles. |
-| **Statistical Metrics** | Coefficient of Variation (CV), MAE, RMSE, and MRE for QPU and Digital Twin relative to the theoretical benchmark. |
+| **Fidelity Decay Plots** | Target-state fidelity P(\|1⟩^⊗N) vs. N with linear regression and 95% t-Student CIs, for raw QPU and readout-corrected results. |
+| **Target-State Weighted Payoff** | Weighted payoff contribution P(\|1⟩^⊗N)·(b−c/N) vs. theoretical benchmark, with analytically derived CIs. |
+| **Noise Characterization** | Average undesired-state probability vs. N, with and without readout correction. |
+| **Hamming Distance Distribution** | Probability distribution of undesired states grouped by Hamming distance from the target state, aggregated over 20 repetitions. |
+| **Global Average Payoff** | QPU and corrected payoffs vs. quantum benchmark and classical Nash equilibrium, with 95% t-Student CIs. |
+| **Digital Twin Scaling** | Noisy simulation fidelity with linear regression, using 20 independent seeds. |
+| **KS Test Validation** | Kolmogorov–Smirnov test comparing QPU and Digital Twin payoff distributions for each N. |
+| **Payoff Benchmark** | Overlay of theoretical, Digital Twin, QPU (raw), QPU (corrected), and classical Nash payoff profiles. |
+| **Benchmark Error Metrics** | MAE, RMSE, and MRE for QPU (raw), QPU (corrected), and Digital Twin vs. theoretical prediction. |
+| **Readout Correction Impact** | Per-N absolute and relative payoff offset introduced by readout error correction. |
+| **Gate Count Analysis** | ECR gate count and circuit depth per optimization level and N, with fidelity decay slope for correlation analysis. |
 
 ---
 
 ## 🚧 Notes
 
 - All results are **fully reproducible from stored data** without an IBM Quantum account.
-- The global reproducibility seed is `SEED = 42`, applied to all simulations.
+- The global reproducibility seed is `SEED = 42`, applied to all simulations. Hardware repetitions are independent physical executions with no seed.
+- Readout error correction is applied in post-processing using the `mthree` library, calibrated from the `properties.json` file of each run.
 - The interactive payoff explorer (Section 4) requires `ipywidgets` and a compatible environment (Colab or local Jupyter). It **does not render** on GitHub's static notebook viewer.
 - The Digital Twin captures global noise trends but does not reproduce device-specific fluctuations such as crosstalk or calibration drift.
+- Four optimization levels (0–3) are analyzed independently. Results are organized by `run_0X/` folder.
 
 ---
 
