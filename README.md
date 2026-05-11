@@ -190,7 +190,7 @@ If no IBM Quantum connection is available, the notebook automatically clones thi
 | **Noise Characterization** | Average undesired-state probability vs. N, with and without readout correction. |
 | **Hamming Distance Distribution** | Probability distribution of undesired states grouped by Hamming distance from the target state, aggregated over 20 repetitions. |
 | **Global Average Payoff** | QPU and corrected payoffs vs. quantum benchmark and classical Nash equilibrium, with 95% t-Student CIs. |
-| **Digital Twin Scaling** | Noisy simulation fidelity with linear regression, using 20 independent seeds. |
+| **Digital Twin Scaling** | Noisy simulation fidelity with linear regression. 20 seeds are used to match QPU repetition count for statistical comparison and to verify model stability under stochastic variation. |
 | **KS Test Validation** | Kolmogorov–Smirnov test comparing QPU and Digital Twin payoff distributions for each N. |
 | **Payoff Benchmark** | Overlay of theoretical, Digital Twin, QPU (raw), QPU (corrected), and classical Nash payoff profiles. |
 | **Benchmark Error Metrics** | MAE, RMSE, and MRE for QPU (raw), QPU (corrected), and Digital Twin vs. theoretical prediction. |
@@ -207,6 +207,7 @@ If no IBM Quantum connection is available, the notebook automatically clones thi
 - The interactive payoff explorer (Section 4) requires `ipywidgets` and a compatible environment (Colab or local Jupyter). It **does not render** on GitHub's static notebook viewer.
 - The Digital Twin captures global noise trends but does not reproduce device-specific fluctuations such as crosstalk or calibration drift.
 - Four optimization levels (0–3) are analyzed independently. Results are organized by `run_0X/` folder.
+- The Digital Twin is executed with 20 independent random seeds. Low variance across seeds confirms that the model's stochastic component (shot noise) is small relative to the systematic noise structure, validating its use as a stable reference for QPU comparison.
 
 ---
 
