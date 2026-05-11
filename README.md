@@ -180,7 +180,9 @@ If no IBM Quantum connection is available, the notebook automatically clones thi
 
 ---
 
-## 📈 | Output | Description |
+## 📈 Output
+
+| Output | Description |
 |---|---|
 | **Interactive Payoff Explorer** | Full (N, θ, φ) strategy landscape via sliders (ideal simulation). |
 | **Fidelity Decay Plots** | Target-state fidelity P(\|1⟩^⊗N) vs. N with linear regression and 95% t-Student CIs, for raw QPU and readout-corrected results. |
