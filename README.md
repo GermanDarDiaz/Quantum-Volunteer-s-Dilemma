@@ -193,7 +193,7 @@ If no IBM Quantum connection is available, the notebook automatically clones thi
 | **Digital Twin Scaling** | Noisy simulation fidelity with linear regression. 20 seeds are used to match QPU repetition count for statistical comparison and to verify model stability under stochastic variation. |
 | **KS Test Validation** | Kolmogorov–Smirnov test comparing QPU and Digital Twin payoff distributions for each N. |
 | **Payoff Benchmark** | Overlay of theoretical, Digital Twin, QPU (raw), QPU (corrected), and classical Nash payoff profiles. |
-| **Benchmark Error Metrics** | MAE, RMSE, and MRE for QPU (raw), QPU (corrected), and Digital Twin vs. theoretical prediction. |
+| **Benchmark Error Metrics** | AE, and RE for QPU (raw), QPU (corrected), and Digital Twin vs. theoretical prediction. |
 | **Readout Correction Impact** | Per-N absolute and relative payoff offset introduced by readout error correction. |
 | **Gate Count Analysis** | ECR gate count and circuit depth per optimization level and N, with fidelity decay slope for correlation analysis. |
 
