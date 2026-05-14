@@ -10,7 +10,7 @@
 
 <p align="center">
   Implementation and experimental validation of the <strong>n-player Volunteer's Dilemma</strong> within the quantum game theory paradigm, using the Eisert–Wilkens–Lewenstein (EWL) protocol.<br>
-  Experiments are executed across three environments: ideal simulation, real IBM Quantum hardware (<code>ibm_kingstone</code>), and a calibration-based Digital Twin.
+  Experiments are executed across three environments: ideal simulation, real IBM Quantum hardware (<code>ibm_kingston</code>), and a calibration-based Digital Twin.
 </p>
 
 ---
