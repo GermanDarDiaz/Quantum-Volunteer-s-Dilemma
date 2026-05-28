@@ -151,7 +151,7 @@ pip install -r requirements.txt
 
 The notebook is designed primarily for **Google Colab**. Open it directly or upload manually:
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/GermanDarDiaz/Quantum-Volunteer-s-Dilemma/blob/main/Quantum_Volunteer%27s_Dilemma.ipynb)
 
 It can also be run locally:
 
@@ -164,12 +164,16 @@ jupyter notebook "Quantum_Volunteer's_Dilemma.ipynb"
 The notebook supports two execution paths:
 
 **IBM Quantum (live hardware):**
-Enter your API token and instance in Section 0. Credentials are never stored in the notebook.
+Paste your API token and instance into the credentials cell (Section 1). The notebook calls `QiskitRuntimeService.save_account()` directly — credentials are not stored in the notebook file.
 
 ```python
-# Section 0 — IBM Quantum credentials (not stored)
-IBM_TOKEN = "your_token_here"
-IBM_INSTANCE = "your_instance_here"
+QiskitRuntimeService.save_account(
+    channel="ibm_quantum_platform",
+    token="",      # paste your IBM Quantum API token here
+    instance="",   # paste your instance (e.g. "ibm-q/open/main")
+    overwrite=True,
+    set_as_default=True
+)
 ```
 
 **Offline (GitHub fallback):**
