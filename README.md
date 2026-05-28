@@ -24,13 +24,13 @@
 ---
 
 > **Based on:**
->
 > Koh, D. E., Kumar, K., & Goh, S. T. (2025). Quantum volunteer's dilemma.
 > *Physical Review Research*, 7(1), 013104.
 > [https://doi.org/10.1103/PhysRevResearch.7.013104](https://doi.org/10.1103/PhysRevResearch.7.013104)
->
+
+> **Also inspired by:**
 > Díaz Agreda, G., Durán Paredes, C. A., Buenaventura Samboni, M., Andrade, J. A., & Cajas Ordoñez, S. (2025). Bridging Theory and Practice in Quantum Game Theory: Optimized Implementation of the Battle of the Sexes with Error Mitigation on NISQ Hardware.
-> *2025 IEEE CHILEAN Conference on Electrical, Electronics Engineering, Information and Communication Technologies (CHILECON)*.
+> *2025 IEEE CHILEAN Conference on Electrical, Electronics Engineering, Information and Communication Technologies (CHILECON)*, pp. 1–10. IEEE.
 > [IEEE](https://ieeexplore.ieee.org/document/11476221) · [DOI](https://doi.org/10.1109/CHILECON66915.2025.11476221) · [arXiv:2508.09050](https://arxiv.org/abs/2508.09050)
 
 ---
