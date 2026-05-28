@@ -222,7 +222,7 @@ If you use this repository, data, or code in your research, **please cite both t
 ```bibtex
 @software{quantum_volunteers_dilemma_repo,
   author       = {D{\'i}az Agreda, Germ{\'a}n and Andrade Hoyos, Jhon Alejandro and
-                  Dur{\'a}n, Carlos and Cajas Ordo{\~n}ez, Sebastian and
+                  Dur{\'a}n, Carlos Andr{\'e}s and Cajas Ordo{\~n}ez, Sebasti{\'a}n Andr{\'e}s and
                   Hebdon, Noah Dane and Goh, Siong Thye and Koh, Dax Enshan},
   title        = {Quantum Volunteer's Dilemma: Experimental Validation via EWL Protocol on IBM Quantum Hardware},
   year         = {2025},
