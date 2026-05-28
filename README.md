@@ -6,6 +6,15 @@
   <img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey?style=flat-square" alt="License">
   <img src="https://img.shields.io/badge/Status-Reproducible-success?style=flat-square" alt="Status">
 </p>
+<p align="center">
+  <a href="https://colab.research.google.com/github/GermanDarDiaz/Quantum-Volunteer-s-Dilemma/blob/main/Quantum_Volunteer%27s_Dilemma.ipynb">
+    <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">
+  </a>
+  &nbsp;
+  <a href="https://github.com/GermanDarDiaz/Quantum-Volunteer-s-Dilemma/blob/main/Quantum_Volunteer's_Dilemma.ipynb">
+    <img src="https://img.shields.io/badge/View%20Notebook-GitHub-181717?style=flat-square&logo=github" alt="View on GitHub">
+  </a>
+</p>
 
 <p align="center">
   Implementation and experimental validation of the <strong>n-player Volunteer's Dilemma</strong> within the quantum game theory paradigm, using the Eisert–Wilkens–Lewenstein (EWL) protocol.<br>
@@ -157,6 +166,7 @@ pip install -r requirements.txt
 The notebook is designed primarily for **Google Colab**. Open it directly or upload manually:
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/GermanDarDiaz/Quantum-Volunteer-s-Dilemma/blob/main/Quantum_Volunteer%27s_Dilemma.ipynb)
+[![View on GitHub](https://img.shields.io/badge/View%20Notebook-GitHub-181717?style=flat-square&logo=github)](https://github.com/GermanDarDiaz/Quantum-Volunteer-s-Dilemma/blob/main/Quantum_Volunteer's_Dilemma.ipynb)
 
 It can also be run locally:
 
