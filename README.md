@@ -3,7 +3,6 @@
 <p align="center">
   <img src="https://img.shields.io/badge/IBM%20Quantum-ibm__kingston-1192E8?style=flat-square" alt="IBM Quantum">
   <img src="https://img.shields.io/badge/Qiskit-2.4.0-6929C4?style=flat-square&logo=qiskit" alt="Qiskit">
-  <img src="https://img.shields.io/badge/IBM%20Quantum-ibm__fez-1192E8?style=flat-square" alt="IBM Quantum">
   <img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey?style=flat-square" alt="License">
   <img src="https://img.shields.io/badge/Status-Reproducible-success?style=flat-square" alt="Status">
 </p>
@@ -218,18 +217,20 @@ If you use this repository, data, or code in your research, **please cite both t
 **This repository:**
 ```bibtex
 @software{quantum_volunteers_dilemma_repo,
-  author       = {[Author(s)]},
+  author       = {D{\'i}az Agreda, Germ{\'a}n and Andrade Hoyos, Jhon Alejandro and
+                  Dur{\'a}n, Carlos and Cajas Ordo{\~n}ez, Sebastian and
+                  Hebdon, Noah Dane and Goh, Siong Thye and Koh, Dax Enshan},
   title        = {Quantum Volunteer's Dilemma: Experimental Validation via EWL Protocol on IBM Quantum Hardware},
   year         = {2025},
-  url          = {https://github.com/[username]/[repository]},
-  note         = {Experimental implementation and Digital Twin validation of the quantum Volunteer's Dilemma}
+  url          = {https://github.com/GermanDarDiaz/Quantum-Volunteer-s-Dilemma},
+  note         = {Experimental implementation and Digital Twin validation of the quantum Volunteer's Dilemma on ibm\_kingston}
 }
 ```
 
 **Original theoretical work:**
 ```bibtex
 @article{koh2025quantum,
-  author  = {Koh, Dax Enshan and Kumar, Kaavya and Goh, Sheng Tao},
+  author  = {Koh, Dax Enshan and Kumar, Kaavya and Goh, Siong Thye},
   title   = {Quantum volunteer's dilemma},
   journal = {Physical Review Research},
   volume  = {7},

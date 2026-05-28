@@ -1,4 +1,10 @@
 qiskit==2.4.0
 qiskit-ibm-runtime==0.46.1
-qiskit_aer
+qiskit-aer
+mthree
 pylatexenc
+scikit-learn
+scipy
+numpy
+matplotlib
+ipywidgets
