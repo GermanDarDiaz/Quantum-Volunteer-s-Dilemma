@@ -281,4 +281,14 @@ See the [`LICENSE`](./LICENSE) file for full terms.
 
 ## 📬 Contact
 
-For questions, bug reports, or collaboration proposals, feel free to open an [Issue](../../issues) or reach out directly via the repository.
+## 📬 Contact
+
+For questions, bug reports, or collaboration proposals, feel free to open an [Issue](https://github.com/GermanDarDiaz/Quantum-Volunteer-s-Dilemma/issues) or reach out directly:
+
+**Germán Darío Díaz Agreda** (corresponding author)
+📧 germandiaz@unicauca.edu.co
+
+**Jhon Alejandro Andrade Hoyos**
+📧 jaandrade@unicauca.edu.co
+
+🏛️ Department of Physics, Universidad del Cauca, Popayán, Colombia
