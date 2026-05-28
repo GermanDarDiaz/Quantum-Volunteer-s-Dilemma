@@ -85,7 +85,7 @@ The implementation follows the **EWL (Eisert–Wilkens–Lewenstein) protocol**,
 |---|---|
 | **1. Entanglement** | Operator `J` correlates all qubits into a shared entangled state, distinguishing the quantum game from its classical counterpart. |
 | **2. Strategy Encoding** | Each player applies `U(θ, φ) = Rz(−π−φ) · Ry(θ) · Rz(π−φ)`, spanning the full SU(2) strategy space. |
-| **3. Disentanglement** | The inverse operator `J†` maps the entangled state back to the computational basis. |
+| **3. Inverse Operator `J†`** | The inverse operator `J†` maps the entangled state back to the computational basis. |
 | **4. Measurement & Payoff** | Bitstring outcomes are mapped to economic payoffs according to the Volunteer's Dilemma cost-sharing rules. |
 
 The **symmetric quantum Nash equilibrium** is parametrized as `(θ = 0, φ = π/N)`, analyzed across N = 2 to 9 players.
