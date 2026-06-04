@@ -117,20 +117,29 @@ Each `run_0X/` subdirectory in `experiments/` corresponds to one optimization le
 ```
 .
 ├── experiments/
-│   ├── run_01/                        # Optimization level 0
+│   ├── processed/
+│   │   └── figures_data.json          # Consolidated dataset (L0-L3) used to generate all paper figures
+│   │
+│   ├── run_01/                        # Optimization level 0 (L0)
 │   │   ├── backend.pkl                # Serialized IBM backend target
-│   │   ├── backend_configuration.json # Backend configuration for noise model
-│   │   ├── job_metadata.json          # Job ID, backend, timestamps, parameters
-│   │   ├── measurement_results.json   # SamplerV2 bitstring counts (20 reps × N)
-│   │   └── properties.json            # T1, T2, gate/readout errors at runtime
-│   ├── run_02/                        # Optimization level 1
+│   │   ├── backend_configuration.json # Backend configuration for noise modeling
+│   │   ├── job_metadata.json          # Job IDs, backend information, timestamps, parameters
+│   │   ├── measurement_results.json   # SamplerV2 bitstring counts (20 repetitions × N)
+│   │   └── properties.json            # T1, T2, gate errors, and readout errors at execution time
+│   │
+│   ├── run_02/                        # Optimization level 1 (L1)
 │   │   └── ...
-│   ├── run_03/                        # Optimization level 2
+│   │
+│   ├── run_03/                        # Optimization level 2 (L2)
 │   │   └── ...
-│   └── run_04/                        # Optimization level 3
+│   │
+│   └── run_04/                        # Optimization level 3 (L3)
 │       └── ...
-├── Quantum_Volunteer's_Dilemma.ipynb
-├── requirements.txt
+│
+├── Quantum_Volunteer's_Dilemma.ipynb  # Main notebook for experiment and data processing
+├── figures_notebook.ipynb             # Reproduces all figures reported in the paper
+│
+├── requirements.txt                   # Required Python packages
 ├── LICENSE
 └── README.md
 ```
