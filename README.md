@@ -118,7 +118,10 @@ Each `run_0X/` subdirectory in `experiments/` corresponds to one optimization le
 .
 ├── experiments/
 │   ├── processed/
-│   │   └── figures_data.json          # Consolidated dataset (L0-L3) used to generate all paper figures
+│   │   └── figures_data_0.json          # Per-level dataset (L0)
+|   |   └── figures_data_1.json          # Per-level dataset (L1)
+|   |   └── figures_data_2.json          # Per-level dataset (L2)
+|   |   └── figures_data_3.json          # Per-level dataset (L3)
 │   │
 │   ├── run_01/                        # Optimization level 0 (L0)
 │   │   ├── backend.pkl                # Serialized IBM backend target
@@ -222,7 +225,11 @@ If no IBM Quantum connection is available, the notebook automatically clones thi
 | **Payoff Benchmark** | Overlay of theoretical, Digital Twin, QPU (raw), QPU (corrected), and classical Nash payoff profiles. |
 | **Benchmark Error Metrics** | AE, and RE for QPU (raw), QPU (corrected), and Digital Twin vs. theoretical prediction. |
 | **Readout Correction Impact** | Per-N absolute and relative payoff offset introduced by readout error correction. |
-| **Gate Count Analysis** | ECR gate count and circuit depth per optimization level and N, with fidelity decay slope for correlation analysis. |
+| **Gate Count Analysis** | CZ gate count and circuit depth per optimization level and N, with fidelity decay slope for correlation analysis. |
+| **Per-Gate Error Budget** | CZ, single-qubit, and idle-time contributions to total error probability, per N. |
+| **Null-Model vs. Digital Twin TVD** | Total-variation distance between the observed Hamming-distance distribution and an independent-failure null model, compared against the corrected Digital Twin. |
+| **Qubit Calibration Outlier Report** | Per-qubit T1 and readout-error summary for the fixed chain, flagging the two most atypical qubits. |
+| **Residual Heatmap** | Observed minus null-model-predicted probability, by N and Hamming distance. |
 
 ---
 
@@ -234,6 +241,7 @@ If no IBM Quantum connection is available, the notebook automatically clones thi
 - The interactive payoff explorer (Section 4) requires `ipywidgets` and a compatible environment (Colab or local Jupyter). It **does not render** on GitHub's static notebook viewer.
 - The Digital Twin captures global noise trends but does not reproduce device-specific fluctuations such as crosstalk or calibration drift.
 - Four optimization levels (0–3) are analyzed independently. Results are organized by `run_0X/` folder.
+- figures_notebook.ipynb generates Figs. 2–4 for a single optimization level, controlled by the ACTIVE_LEVEL variable (set right after the dependencies cell). Fig. 1 always compares all four levels regardless of this setting.
 - The Digital Twin is executed with 20 independent random seeds. Low variance across seeds confirms that the model's stochastic component (shot noise) is small relative to the systematic noise structure, validating its use as a stable reference for QPU comparison.
 
 ---
@@ -287,8 +295,6 @@ Under the following terms:
 See the [`LICENSE`](./LICENSE) file for full terms.
 
 ---
-
-## 📬 Contact
 
 ## 📬 Contact
 
